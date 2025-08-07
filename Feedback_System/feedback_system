@@ -1,0 +1,34 @@
+def submit():
+    #file= open("demo.txt", "w")
+    with open("demo.txt", "w") as file:
+        feedback = input("Enter your feedback: ")
+        file.write(feedback)
+
+def read():
+    try:
+        with open("demo.txt", "r") as file:
+            feedback = file.read()
+            print("\nYour feedback was:\n", feedback)
+    except FileNotFoundError:
+        print("\nNo feedback found yet.")
+
+while True:
+    print("\n# Choose the Following Options: ")
+    print("1 for Submit Feedback")
+    print("2 for See Feedback")
+    print("3 for Close Feedback System")
+
+    choose = input("Enter the option number: ")
+
+    if choose == "1":
+        submit()
+
+    elif choose == "2":
+        read()
+
+    elif choose == "3":
+        print("Feedback System Closed.")
+        break
+
+    else:
+        print("Invalid Option. Try again.")
